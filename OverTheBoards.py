@@ -5,12 +5,11 @@ root = Tk()
 roster = ["Hoban Washburne", "River Tam", "Shepard Book", "Adelai Niska", "Warwick Harrow", "Malcolm Reynolds",
           "Inara Serra", "Simon Tam", "Yolanda Saffron", "Fess Higgins", "Jayne Cobb", "Kaylee Frye", "Zoe Washburne",
           "Jubal Early", "Atherton Wing", "Sheppard Badger", "Tracey Smith", "Lieutenant Womack", "Sheriff Bourne",
-          "Clarke Nandi", "Magistrate Higgins", "Patience Whitefall", "Stitch Hessian", "Lawrence Dobson",
-          "Thomas Anderson"]
+          "Clarke Nandi", "Magistrate Higgins", "Patience Whitefall", "Stitch Hessian"]
 
 positions = ["1 - LW", "1 - C ", "1 - RW", "2 - LW", "2 - C ", "2 - RW", "3 - LW", "3 - C ", "3 - RW",
              "4 - LW", "4 - C ", "4 - RW", "1 - LD", "1 - RD", "2 - LD", "2 - RD", "3 - LD", "3 - RD", "1 - G ",
-             "Scratch"]
+             "2 - G", "Scratch", "Scratch", "Scratch"]
 
 position_dict = {
     0: "LW1",
@@ -31,7 +30,11 @@ position_dict = {
     15: "RD2",
     16: "LD3",
     17: "RD3",
-    18: "G_1"
+    18: "G_1",
+    19: "G_2",
+    20: "SC1",
+    21: "SC2",
+    22: "SC3"
 }
 
 
@@ -70,6 +73,12 @@ FRD3 = Frame(root)
 
 FG_0 = Frame(root)
 FG_1 = Frame(root)
+FG_2 = Frame(root)
+
+FSC0 = Frame(root)
+FSC1 = Frame(root)
+FSC2 = Frame(root)
+FSC3 = Frame(root)
 
 # position labels and spacers
 LW0 = Label(FLW0, text="Left Wing")
@@ -78,7 +87,7 @@ RW0 = Label(FRW0, text="Right Wing")
 LD0 = Label(FLD0, text="Left D")
 RD0 = Label(FRD0, text="Right D")
 G_0 = Label(FG_0, text="Goalie")
-Scr = Label(root, text="Scratches:")
+SC0 = Label(FSC0, text="Scratches:")
 
 # player name labels
 LW1 = Label(FLW1, text=roster[0])
@@ -107,6 +116,11 @@ LD3 = Label(FLD3, text=roster[16])
 RD3 = Label(FRD3, text=roster[17])
 
 G_1 = Label(FG_1, text=roster[18])
+G_2 = Label(FG_2, text=roster[19])
+
+SC1 = Label(FSC1, text=roster[20])
+SC2 = Label(FSC2, text=roster[21])
+SC3 = Label(FSC3, text=roster[22])
 
 # position selection create pos_var
 pos_varFLW1 = StringVar(root)
@@ -128,6 +142,10 @@ pos_varFRD2 = StringVar(root)
 pos_varFLD3 = StringVar(root)
 pos_varFRD3 = StringVar(root)
 pos_varFG_1 = StringVar(root)
+pos_varFG_2 = StringVar(root)
+pos_varFSC1 = StringVar(root)
+pos_varFSC2 = StringVar(root)
+pos_varFSC3 = StringVar(root)
 
 # set default dropdown to correct position
 pos_varFLW1.set(positions[0])
@@ -149,6 +167,10 @@ pos_varFRD2.set(positions[15])
 pos_varFLD3.set(positions[16])
 pos_varFRD3.set(positions[17])
 pos_varFG_1.set(positions[18])
+pos_varFG_2.set(positions[19])
+pos_varFSC1.set(positions[20])
+pos_varFSC2.set(positions[21])
+pos_varFSC3.set(positions[22])
 
 # create dropdown button object
 dropdownFLW1 = OptionMenu(FLW1, pos_varFLW1, *positions)
@@ -177,6 +199,11 @@ dropdownFLD3 = OptionMenu(FLD3, pos_varFLD3, *positions)
 dropdownFRD3 = OptionMenu(FRD3, pos_varFRD3, *positions)
 
 dropdownFG_1 = OptionMenu(FG_1, pos_varFG_1, *positions)
+dropdownFG_2 = OptionMenu(FG_2, pos_varFG_2, *positions)
+
+dropdownFSC1 = OptionMenu(FSC1, pos_varFSC1, *positions)
+dropdownFSC2 = OptionMenu(FSC2, pos_varFSC2, *positions)
+dropdownFSC3 = OptionMenu(FSC3, pos_varFSC3, *positions)
 
 # grid creation with frames
 FLW0.grid(row=0, column=0)
@@ -213,6 +240,14 @@ FRD3.grid(row=8, column=3)
 
 FG_0.grid(row=9, column=2)
 FG_1.grid(row=10, column=2)
+FG_2.grid(row=11, column=2)
+
+FSC0.grid(row=12, column=0)
+FSC1.grid(row=12, column=1)
+FSC2.grid(row=12, column=2)
+FSC3.grid(row=12, column=3)
+
+
 
 # packing
 LW0.pack()
@@ -235,8 +270,8 @@ LW4.pack(side=LEFT)
 C_4.pack(side=LEFT)
 RW4.pack(side=LEFT)
 
-LD0.pack(side=LEFT)
-RD0.pack(side=LEFT)
+LD0.pack()
+RD0.pack()
 
 LD1.pack(side=LEFT)
 RD1.pack(side=LEFT)
@@ -249,6 +284,12 @@ RD3.pack(side=LEFT)
 
 G_0.pack(side=LEFT)
 G_1.pack(side=LEFT)
+G_2.pack(side=LEFT)
+
+SC0.pack()
+SC1.pack(side=LEFT)
+SC2.pack(side=LEFT)
+SC3.pack(side=LEFT)
 
 dropdownFLW1.pack(side=RIGHT)
 dropdownFC_1.pack(side=RIGHT)
@@ -276,12 +317,17 @@ dropdownFLD3.pack(side=RIGHT)
 dropdownFRD3.pack(side=RIGHT)
 
 dropdownFG_1.pack(side=RIGHT)
+dropdownFG_2.pack(side=RIGHT)
+
+dropdownFSC1.pack(side=RIGHT)
+dropdownFSC2.pack(side=RIGHT)
+dropdownFSC3.pack(side=RIGHT)
 
 # scratches
-Scr.grid(row=11, column=0)
-for i in range(len(roster)-19):
-    j = Label(root, text=roster[i+19])
-    j.grid(row=12+(i // 5), column=i % 5)
+# Scr.grid(row=11, column=0)
+# for i in range(len(roster)-19):
+#     j = Label(root, text=roster[i+19])
+#     j.grid(row=12+(i // 5), column=i % 5)
 
 # functions for position switching
 
@@ -609,6 +655,74 @@ def positionSwitchG_1(*args):
             break
 
 
+def positionSwitchG_2(*args):
+    print(pos_varFG_2.get())
+    # ignore choosing current player position
+    if pos_varFG_2.get() == positions[19]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFG_2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[19], roster[x] = roster[x], roster[19]
+            G_2.config(text=roster[19])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchSC1(*args):
+    print(pos_varFSC1.get())
+    # ignore choosing current player position
+    if pos_varFSC1.get() == positions[20]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFSC1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[20], roster[x] = roster[x], roster[20]
+            SC1.config(text=roster[20])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchSC2(*args):
+    print(pos_varFSC2.get())
+    # ignore choosing current player position
+    if pos_varFSC2.get() == positions[21]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFSC2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[21], roster[x] = roster[x], roster[21]
+            SC2.config(text=roster[21])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchSC3(*args):
+    print(pos_varFSC3.get())
+    # ignore choosing current player position
+    if pos_varFSC3.get() == positions[22]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFSC3.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[22], roster[x] = roster[x], roster[22]
+            SC3.config(text=roster[22])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
 pos_varFLW1.trace('w', positionSwitchLW1)
 pos_varFC_1.trace('w', positionSwitchC_1)
 pos_varFRW1.trace('w', positionSwitchRW1)
@@ -628,6 +742,10 @@ pos_varFRD2.trace('w', positionSwitchRD2)
 pos_varFLD3.trace('w', positionSwitchLD3)
 pos_varFRD3.trace('w', positionSwitchRD3)
 pos_varFG_1.trace('w', positionSwitchG_1)
+pos_varFG_2.trace('w', positionSwitchG_2)
+pos_varFSC1.trace('w', positionSwitchSC1)
+pos_varFSC2.trace('w', positionSwitchSC2)
+pos_varFSC3.trace('w', positionSwitchSC3)
 
 
 # main loop
