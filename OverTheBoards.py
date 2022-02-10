@@ -12,11 +12,27 @@ positions = ["1 - LW", "1 - C ", "1 - RW", "2 - LW", "2 - C ", "2 - RW", "3 - LW
              "4 - LW", "4 - C ", "4 - RW", "1 - LD", "1 - RD", "2 - LD", "2 - RD", "3 - LD", "3 - RD", "1 - G ",
              "Scratch"]
 
-
-
-
-def positionSwitch():
-    print("Position Selected is", variable.get())
+position_dict = {
+    0: "LW1",
+    1: "C_1",
+    2: "RW1",
+    3: "LW2",
+    4: "C_2",
+    5: "RW2",
+    6: "LW3",
+    7: "C_3",
+    8: "RW3",
+    9: "LW4",
+    10: "C_4",
+    11: "RW4",
+    12: "LD1",
+    13: "RD1",
+    14: "LD2",
+    15: "RD2",
+    16: "LD3",
+    17: "RD3",
+    18: "G_1"
+}
 
 
 # frame creation
@@ -267,6 +283,352 @@ for i in range(len(roster)-19):
     j = Label(root, text=roster[i+19])
     j.grid(row=12+(i // 5), column=i % 5)
 
+# functions for position switching
 
 
+def positionSwitchLW1(*args):
+    print(pos_varFLW1.get())
+    # ignore choosing current player position
+    if pos_varFLW1.get() == positions[0]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLW1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[0], roster[x] = roster[x], roster[0]
+            LW1.config(text=roster[0])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchC_1(*args):
+    print(pos_varFC_1.get())
+    # ignore choosing current player position
+    if pos_varFC_1.get() == positions[1]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFC_1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[1], roster[x] = roster[x], roster[1]
+            C_1.config(text=roster[1])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRW1(*args):
+    print(pos_varFRW1.get())
+    # ignore choosing current player position
+    if pos_varFRW1.get() == positions[2]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRW1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[2], roster[x] = roster[x], roster[2]
+            RW1.config(text=roster[2])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchLW2(*args):
+    print(pos_varFLW2.get())
+    # ignore choosing current player position
+    if pos_varFLW2.get() == positions[3]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLW2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[3], roster[x] = roster[x], roster[3]
+            LW2.config(text=roster[3])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchC_2(*args):
+    print(pos_varFC_2.get())
+    # ignore choosing current player position
+    if pos_varFC_2.get() == positions[4]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFC_2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[4], roster[x] = roster[x], roster[4]
+            C_2.config(text=roster[4])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRW2(*args):
+    print(pos_varFRW2.get())
+    # ignore choosing current player position
+    if pos_varFRW2.get() == positions[5]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRW2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[5], roster[x] = roster[x], roster[5]
+            RW2.config(text=roster[5])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchLW3(*args):
+    print(pos_varFLW3.get())
+    # ignore choosing current player position
+    if pos_varFLW3.get() == positions[6]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLW3.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[6], roster[x] = roster[x], roster[6]
+            LW3.config(text=roster[6])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchC_3(*args):
+    print(pos_varFC_3.get())
+    # ignore choosing current player position
+    if pos_varFC_3.get() == positions[7]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFC_3.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[7], roster[x] = roster[x], roster[7]
+            C_3.config(text=roster[7])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRW3(*args):
+    print(pos_varFRW3.get())
+    # ignore choosing current player position
+    if pos_varFRW3.get() == positions[8]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRW3.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[8], roster[x] = roster[x], roster[8]
+            RW3.config(text=roster[8])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchLW4(*args):
+    print(pos_varFLW4.get())
+    # ignore choosing current player position
+    if pos_varFLW4.get() == positions[9]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLW4.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[9], roster[x] = roster[x], roster[9]
+            LW4.config(text=roster[9])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchC_4(*args):
+    print(pos_varFC_4.get())
+    # ignore choosing current player position
+    if pos_varFC_4.get() == positions[10]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFC_4.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[10], roster[x] = roster[x], roster[10]
+            C_4.config(text=roster[10])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRW4(*args):
+    print(pos_varFRW4.get())
+    # ignore choosing current player position
+    if pos_varFRW4.get() == positions[11]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRW4.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[11], roster[x] = roster[x], roster[11]
+            RW4.config(text=roster[11])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchLD1(*args):
+    print(pos_varFLD1.get())
+    # ignore choosing current player position
+    if pos_varFLD1.get() == positions[12]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLD1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[12], roster[x] = roster[x], roster[12]
+            LD1.config(text=roster[12])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRD1(*args):
+    print(pos_varFRD1.get())
+    # ignore choosing current player position
+    if pos_varFRD1.get() == positions[13]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRD1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[13], roster[x] = roster[x], roster[13]
+            RD1.config(text=roster[13])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchLD2(*args):
+    print(pos_varFLD2.get())
+    # ignore choosing current player position
+    if pos_varFLD2.get() == positions[14]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLD2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[14], roster[x] = roster[x], roster[14]
+            LD2.config(text=roster[14])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRD2(*args):
+    print(pos_varFRD2.get())
+    # ignore choosing current player position
+    if pos_varFRD2.get() == positions[15]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRD2.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[15], roster[x] = roster[x], roster[15]
+            RD2.config(text=roster[15])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchLD3(*args):
+    print(pos_varFLD3.get())
+    # ignore choosing current player position
+    if pos_varFLD3.get() == positions[16]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFLD3.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[16], roster[x] = roster[x], roster[16]
+            LD3.config(text=roster[16])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchRD3(*args):
+    print(pos_varFRD3.get())
+    # ignore choosing current player position
+    if pos_varFRD3.get() == positions[17]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFRD3.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[17], roster[x] = roster[x], roster[17]
+            RD3.config(text=roster[17])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+def positionSwitchG_1(*args):
+    print(pos_varFG_1.get())
+    # ignore choosing current player position
+    if pos_varFG_1.get() == positions[18]:
+        return
+
+    # find correct position to switch with
+    for x in range(len(positions)):
+        if pos_varFG_1.get() == positions[x]:
+            
+            # switch roster positions, call config to update the Labels
+            roster[18], roster[x] = roster[x], roster[18]
+            G_1.config(text=roster[18])
+            eval(position_dict.get(x)+".config(text=roster[x])")
+            break
+
+
+pos_varFLW1.trace('w', positionSwitchLW1)
+pos_varFC_1.trace('w', positionSwitchC_1)
+pos_varFRW1.trace('w', positionSwitchRW1)
+pos_varFLW2.trace('w', positionSwitchLW2)
+pos_varFC_2.trace('w', positionSwitchC_2)
+pos_varFRW2.trace('w', positionSwitchRW2)
+pos_varFLW3.trace('w', positionSwitchLW3)
+pos_varFC_3.trace('w', positionSwitchC_3)
+pos_varFRW3.trace('w', positionSwitchRW3)
+pos_varFLW4.trace('w', positionSwitchLW4)
+pos_varFC_4.trace('w', positionSwitchC_4)
+pos_varFRW4.trace('w', positionSwitchRW4)
+pos_varFLD1.trace('w', positionSwitchLD1)
+pos_varFRD1.trace('w', positionSwitchRD1)
+pos_varFLD2.trace('w', positionSwitchLD2)
+pos_varFRD2.trace('w', positionSwitchRD2)
+pos_varFLD3.trace('w', positionSwitchLD3)
+pos_varFRD3.trace('w', positionSwitchRD3)
+pos_varFG_1.trace('w', positionSwitchG_1)
+
+
+# main loop
 root.mainloop()
