@@ -333,7 +333,6 @@ dropdownFSC3.pack(side=RIGHT)
 
 
 def positionSwitchLW1(*args):
-    print(pos_varFLW1.get())
     # ignore choosing current player position
     if pos_varFLW1.get() == positions[0]:
         return
@@ -346,11 +345,13 @@ def positionSwitchLW1(*args):
             roster[0], roster[x] = roster[x], roster[0]
             LW1.config(text=roster[0])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLW1.set(positions[0])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
+
 def positionSwitchC_1(*args):
-    print(pos_varFC_1.get())
     # ignore choosing current player position
     if pos_varFC_1.get() == positions[1]:
         return
@@ -363,11 +364,12 @@ def positionSwitchC_1(*args):
             roster[1], roster[x] = roster[x], roster[1]
             C_1.config(text=roster[1])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFC_1.set(positions[1])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRW1(*args):
-    print(pos_varFRW1.get())
     # ignore choosing current player position
     if pos_varFRW1.get() == positions[2]:
         return
@@ -380,11 +382,12 @@ def positionSwitchRW1(*args):
             roster[2], roster[x] = roster[x], roster[2]
             RW1.config(text=roster[2])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRW1.set(positions[2])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchLW2(*args):
-    print(pos_varFLW2.get())
     # ignore choosing current player position
     if pos_varFLW2.get() == positions[3]:
         return
@@ -397,11 +400,12 @@ def positionSwitchLW2(*args):
             roster[3], roster[x] = roster[x], roster[3]
             LW2.config(text=roster[3])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLW2.set(positions[3])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchC_2(*args):
-    print(pos_varFC_2.get())
     # ignore choosing current player position
     if pos_varFC_2.get() == positions[4]:
         return
@@ -414,11 +418,12 @@ def positionSwitchC_2(*args):
             roster[4], roster[x] = roster[x], roster[4]
             C_2.config(text=roster[4])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFC_2.set(positions[4])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRW2(*args):
-    print(pos_varFRW2.get())
     # ignore choosing current player position
     if pos_varFRW2.get() == positions[5]:
         return
@@ -431,11 +436,12 @@ def positionSwitchRW2(*args):
             roster[5], roster[x] = roster[x], roster[5]
             RW2.config(text=roster[5])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRW2.set(positions[5])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchLW3(*args):
-    print(pos_varFLW3.get())
     # ignore choosing current player position
     if pos_varFLW3.get() == positions[6]:
         return
@@ -448,11 +454,12 @@ def positionSwitchLW3(*args):
             roster[6], roster[x] = roster[x], roster[6]
             LW3.config(text=roster[6])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLW3.set(positions[6])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchC_3(*args):
-    print(pos_varFC_3.get())
     # ignore choosing current player position
     if pos_varFC_3.get() == positions[7]:
         return
@@ -465,11 +472,12 @@ def positionSwitchC_3(*args):
             roster[7], roster[x] = roster[x], roster[7]
             C_3.config(text=roster[7])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFC_3.set(positions[7])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRW3(*args):
-    print(pos_varFRW3.get())
     # ignore choosing current player position
     if pos_varFRW3.get() == positions[8]:
         return
@@ -482,11 +490,12 @@ def positionSwitchRW3(*args):
             roster[8], roster[x] = roster[x], roster[8]
             RW3.config(text=roster[8])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRW3.set(positions[8])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchLW4(*args):
-    print(pos_varFLW4.get())
     # ignore choosing current player position
     if pos_varFLW4.get() == positions[9]:
         return
@@ -499,11 +508,12 @@ def positionSwitchLW4(*args):
             roster[9], roster[x] = roster[x], roster[9]
             LW4.config(text=roster[9])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLW4.set(positions[9])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchC_4(*args):
-    print(pos_varFC_4.get())
     # ignore choosing current player position
     if pos_varFC_4.get() == positions[10]:
         return
@@ -516,11 +526,12 @@ def positionSwitchC_4(*args):
             roster[10], roster[x] = roster[x], roster[10]
             C_4.config(text=roster[10])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFC_4.set(positions[10])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRW4(*args):
-    print(pos_varFRW4.get())
     # ignore choosing current player position
     if pos_varFRW4.get() == positions[11]:
         return
@@ -533,11 +544,12 @@ def positionSwitchRW4(*args):
             roster[11], roster[x] = roster[x], roster[11]
             RW4.config(text=roster[11])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRW4.set(positions[11])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchLD1(*args):
-    print(pos_varFLD1.get())
     # ignore choosing current player position
     if pos_varFLD1.get() == positions[12]:
         return
@@ -550,11 +562,12 @@ def positionSwitchLD1(*args):
             roster[12], roster[x] = roster[x], roster[12]
             LD1.config(text=roster[12])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLD1.set(positions[12])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRD1(*args):
-    print(pos_varFRD1.get())
     # ignore choosing current player position
     if pos_varFRD1.get() == positions[13]:
         return
@@ -567,11 +580,12 @@ def positionSwitchRD1(*args):
             roster[13], roster[x] = roster[x], roster[13]
             RD1.config(text=roster[13])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRD1.set(positions[13])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchLD2(*args):
-    print(pos_varFLD2.get())
     # ignore choosing current player position
     if pos_varFLD2.get() == positions[14]:
         return
@@ -584,11 +598,12 @@ def positionSwitchLD2(*args):
             roster[14], roster[x] = roster[x], roster[14]
             LD2.config(text=roster[14])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLD2.set(positions[14])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRD2(*args):
-    print(pos_varFRD2.get())
     # ignore choosing current player position
     if pos_varFRD2.get() == positions[15]:
         return
@@ -601,11 +616,12 @@ def positionSwitchRD2(*args):
             roster[15], roster[x] = roster[x], roster[15]
             RD2.config(text=roster[15])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRD2.set(positions[15])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchLD3(*args):
-    print(pos_varFLD3.get())
     # ignore choosing current player position
     if pos_varFLD3.get() == positions[16]:
         return
@@ -618,11 +634,12 @@ def positionSwitchLD3(*args):
             roster[16], roster[x] = roster[x], roster[16]
             LD3.config(text=roster[16])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFLD3.set(positions[16])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchRD3(*args):
-    print(pos_varFRD3.get())
     # ignore choosing current player position
     if pos_varFRD3.get() == positions[17]:
         return
@@ -635,11 +652,12 @@ def positionSwitchRD3(*args):
             roster[17], roster[x] = roster[x], roster[17]
             RD3.config(text=roster[17])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFRD3.set(positions[17])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchG_1(*args):
-    print(pos_varFG_1.get())
     # ignore choosing current player position
     if pos_varFG_1.get() == positions[18]:
         return
@@ -652,11 +670,12 @@ def positionSwitchG_1(*args):
             roster[18], roster[x] = roster[x], roster[18]
             G_1.config(text=roster[18])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFG_1.set(positions[18])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchG_2(*args):
-    print(pos_varFG_2.get())
     # ignore choosing current player position
     if pos_varFG_2.get() == positions[19]:
         return
@@ -669,11 +688,12 @@ def positionSwitchG_2(*args):
             roster[19], roster[x] = roster[x], roster[19]
             G_2.config(text=roster[19])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFG_2.set(positions[19])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchSC1(*args):
-    print(pos_varFSC1.get())
     # ignore choosing current player position
     if pos_varFSC1.get() == positions[20]:
         return
@@ -686,11 +706,12 @@ def positionSwitchSC1(*args):
             roster[20], roster[x] = roster[x], roster[20]
             SC1.config(text=roster[20])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFSC1.set(positions[20])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchSC2(*args):
-    print(pos_varFSC2.get())
     # ignore choosing current player position
     if pos_varFSC2.get() == positions[21]:
         return
@@ -703,11 +724,12 @@ def positionSwitchSC2(*args):
             roster[21], roster[x] = roster[x], roster[21]
             SC2.config(text=roster[21])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFSC2.set(positions[21])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
 def positionSwitchSC3(*args):
-    print(pos_varFSC3.get())
     # ignore choosing current player position
     if pos_varFSC3.get() == positions[22]:
         return
@@ -720,9 +742,12 @@ def positionSwitchSC3(*args):
             roster[22], roster[x] = roster[x], roster[22]
             SC3.config(text=roster[22])
             eval(position_dict.get(x)+".config(text=roster[x])")
+            pos_varFSC3.set(positions[22])
+            eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
 
 
+# link function to dropdown
 pos_varFLW1.trace('w', positionSwitchLW1)
 pos_varFC_1.trace('w', positionSwitchC_1)
 pos_varFRW1.trace('w', positionSwitchRW1)
