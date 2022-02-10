@@ -39,9 +39,9 @@ position_dict = {
 
 
 # frame creation
-FLW0 = Frame(root)
-FC_0 = Frame(root)
-FRW0 = Frame(root)
+FLW0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
+FC_0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
+FRW0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
 
 FLW1 = Frame(root)
 FC_1 = Frame(root)
@@ -59,8 +59,8 @@ FLW4 = Frame(root)
 FC_4 = Frame(root)
 FRW4 = Frame(root)
 
-FLD0 = Frame(root)
-FRD0 = Frame(root)
+FLD0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
+FRD0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
 
 FLD1 = Frame(root)
 FRD1 = Frame(root)
@@ -71,14 +71,15 @@ FRD2 = Frame(root)
 FLD3 = Frame(root)
 FRD3 = Frame(root)
 
-FG_0 = Frame(root)
+FG_0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
 FG_1 = Frame(root)
 FG_2 = Frame(root)
 
-FSC0 = Frame(root)
+FSC0 = Frame(root, pady=50)
 FSC1 = Frame(root)
 FSC2 = Frame(root)
 FSC3 = Frame(root)
+
 
 # position labels and spacers
 LW0 = Label(FLW0, text="Left Wing")
@@ -88,6 +89,10 @@ LD0 = Label(FLD0, text="Left D")
 RD0 = Label(FRD0, text="Right D")
 G_0 = Label(FG_0, text="Goalie")
 SC0 = Label(FSC0, text="Scratches:")
+
+# Import Roster Button
+Imp = Button(root, text="Import Roster", padx=50, pady=10)
+Imp.grid(row=13, column=0)
 
 # player name labels
 LW1 = Label(FLW1, text=roster[0])
@@ -121,6 +126,7 @@ G_2 = Label(FG_2, text=roster[19])
 SC1 = Label(FSC1, text=roster[20])
 SC2 = Label(FSC2, text=roster[21])
 SC3 = Label(FSC3, text=roster[22])
+
 
 # position selection create pos_var
 pos_varFLW1 = StringVar(root)
@@ -247,8 +253,6 @@ FSC1.grid(row=12, column=1)
 FSC2.grid(row=12, column=2)
 FSC3.grid(row=12, column=3)
 
-
-
 # packing
 LW0.pack()
 C_0.pack()
@@ -323,6 +327,8 @@ dropdownFSC1.pack(side=RIGHT)
 dropdownFSC2.pack(side=RIGHT)
 dropdownFSC3.pack(side=RIGHT)
 
+
+
 # scratches
 # Scr.grid(row=11, column=0)
 # for i in range(len(roster)-19):
@@ -348,7 +354,6 @@ def positionSwitchLW1(*args):
             pos_varFLW1.set(positions[0])
             eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
-
 
 
 def positionSwitchC_1(*args):
@@ -771,6 +776,7 @@ pos_varFG_2.trace('w', positionSwitchG_2)
 pos_varFSC1.trace('w', positionSwitchSC1)
 pos_varFSC2.trace('w', positionSwitchSC2)
 pos_varFSC3.trace('w', positionSwitchSC3)
+
 
 
 # main loop
