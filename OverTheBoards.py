@@ -94,6 +94,10 @@ SC0 = Label(FSC0, text="Scratches:")
 Imp = Button(root, text="Import Roster", padx=50, pady=10)
 Imp.grid(row=13, column=0)
 
+# Export Roster Button
+Imp = Button(root, text="Export Roster", padx=50, pady=10)
+Imp.grid(row=13, column=4)
+
 # player name labels
 LW1 = Label(FLW1, text=roster[0])
 C_1 = Label(FC_1, text=roster[1])
