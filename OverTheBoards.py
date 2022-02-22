@@ -1,7 +1,11 @@
 from tkinter import *
+from babel.dates import format_date, format_datetime, format_time
+from tkcalendar import Calendar, DateEntry
 import json
 
 root = Tk()
+
+root.title("OverTheBoards")
 
 roster = [
     "Hoban Washburne",
@@ -27,11 +31,33 @@ roster = [
     "Magistrate Higgins",
     "Patience Whitefall",
     "Stitch Hessian"
-          ]
+]
 
-positions = ["1 - LW", "1 - C ", "1 - RW", "2 - LW", "2 - C ", "2 - RW", "3 - LW", "3 - C ", "3 - RW",
-             "4 - LW", "4 - C ", "4 - RW", "1 - LD", "1 - RD", "2 - LD", "2 - RD", "3 - LD", "3 - RD", "1 - G ",
-             "2 - G", "Scratch", "Scratch", "Scratch"]
+positions = [
+    "1 - LW",
+    "1 - C ",
+    "1 - RW",
+    "2 - LW",
+    "2 - C ",
+    "2 - RW",
+    "3 - LW",
+    "3 - C ",
+    "3 - RW",
+    "4 - LW",
+    "4 - C ",
+    "4 - RW",
+    "1 - LD",
+    "1 - RD",
+    "2 - LD",
+    "2 - RD",
+    "3 - LD",
+    "3 - RD",
+    "1 - G ",
+    "2 - G",
+    "Scratch",
+    "Scratch",
+    "Scratch"
+]
 
 position_dict = {
     0: "LW1",
@@ -87,7 +113,7 @@ position_list = [
 
 
 
-# frame creation
+# roster frame creation
 FLW0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
 FC_0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
 FRW0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
@@ -129,6 +155,12 @@ FSC1 = Frame(root)
 FSC2 = Frame(root)
 FSC3 = Frame(root)
 
+# button and additional frame creation
+FImp = Frame(root)
+FExp = Frame(root)
+FSave = Frame(root)
+FDate = Frame(root)
+FInfo = Frame(root)
 
 # position labels and spacers
 LW0 = Label(FLW0, text="Left Wing")
@@ -138,30 +170,6 @@ LD0 = Label(FLD0, text="Left D")
 RD0 = Label(FRD0, text="Right D")
 G_0 = Label(FG_0, text="Goalie")
 SC0 = Label(FSC0, text="Scratches:")
-
-# Import Roster Button
-Imp = Button(root, text="Import Roster", padx=50, pady=10)
-Imp.grid(row=13, column=0)
-
-
-# function for exporting roster to a txt file
-def exportRoster():
-    # create dictionary with positions and players
-    i = 0
-    export_dict = {key: None for key in position_list}
-    for key in position_list:
-        export_dict[key] = roster[i]
-        i += 1
-
-    # create json object, write to file
-    json_object = json.dumps(export_dict, indent=4)
-    with open("roster_export.txt", "w") as outfile:
-        outfile.write(json_object)
-
-
-# Export Roster Button
-Imp = Button(root, text="Export Roster", command=exportRoster, padx=50, pady=10)
-Imp.grid(row=13, column=4)
 
 # player name labels
 LW1 = Label(FLW1, text=roster[0])
@@ -840,6 +848,111 @@ pos_varFSC2.trace('w', positionSwitchSC2)
 pos_varFSC3.trace('w', positionSwitchSC3)
 
 
+# https://stackoverflow.com/questions/3221956/how-do-i-display-tooltips-in-tkinter
+class CreateToolTip(object):
+    """
+    Class defining how a tooltip is created.
+    """
+    def __init__(self, widget, text='widget info'):
+        self.waittime = 100     #miliseconds
+        self.wraplength = 180   #pixels
+        self.widget = widget
+        self.text = text
+        self.widget.bind("<Enter>", self.enter)
+        self.widget.bind("<Leave>", self.leave)
+        self.widget.bind("<ButtonPress>", self.leave)
+        self.id = None
+        self.tw = None
+
+    def enter(self, event=None):
+        self.schedule()
+
+    def leave(self, event=None):
+        self.unschedule()
+        self.hidetip()
+
+    def schedule(self):
+        self.unschedule()
+        self.id = self.widget.after(self.waittime, self.showtip)
+
+    def unschedule(self):
+        id = self.id
+        self.id = None
+        if id:
+            self.widget.after_cancel(id)
+
+    def showtip(self, event=None):
+        x = y = 0
+        x, y, cx, cy = self.widget.bbox("insert")
+        x += self.widget.winfo_rootx() + 25
+        y += self.widget.winfo_rooty() + 20
+        # creates a toplevel window
+        self.tw = Toplevel(self.widget)
+        # Leaves only the label and removes the app window
+        self.tw.wm_overrideredirect(True)
+        self.tw.wm_geometry("+%d+%d" % (x, y))
+        label = Label(self.tw, text=self.text, justify='left',
+                       background="#ffffff", relief='solid', borderwidth=1,
+                       wraplength = self.wraplength)
+        label.pack(ipadx=1)
+
+    def hidetip(self):
+        tw = self.tw
+        self.tw= None
+        if tw:
+            tw.destroy()
+
+
+info = Label(FInfo, text="Choose Date of Game:")
+FInfo.grid(row=13, column=1)
+
+info.pack()
+
+
+# Date Selector Creation
+calendar = DateEntry(FDate, width=12, background='darkblue', foreground='white', borderwidth=2)
+
+FDate.grid(row=13, column=2, padx=10, pady=10)
+calendar.pack()
+
+
+# function for exporting roster to a txt file
+def exportRoster():
+    # create dictionary with positions and players
+    i = 0
+    export_dict = {key: None for key in position_list}
+    for key in position_list:
+        export_dict[key] = roster[i]
+        i += 1
+
+    # create json object, write to file
+    json_object = json.dumps(export_dict, indent=4)
+    with open("roster_export.txt", "w") as outfile:
+        outfile.write(json_object)
+
+
+# Export Roster Button
+ExportRoster = Button(FExp, text="Export Roster", command=exportRoster, padx=50, pady=10)
+
+# Set position and pack
+FExp.grid(row=13, column=4)
+ExportRoster.pack()
+
+
+# function for importing roster from a txt file
+def importRoster():
+    print("Roster import will happen here.")
+
+
+# Import Roster Button
+ImportRoster = Button(FImp, text="Import Roster", command=importRoster, padx=50, pady=10)
+
+# Set position and pack
+FImp.grid(row=13, column=3)
+ImportRoster.pack()
+
+# Create Tooltip Text
+ImportRoster_TTP = CreateToolTip(ImportRoster, "WARNING: Importing a roster will overwrite current roster. Please ensure you have saved your data.")
 
 # main loop
 root.mainloop()
