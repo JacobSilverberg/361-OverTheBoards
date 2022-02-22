@@ -289,46 +289,46 @@ dropdownFSC2 = OptionMenu(FSC2, pos_varFSC2, *positions)
 dropdownFSC3 = OptionMenu(FSC3, pos_varFSC3, *positions)
 
 # grid creation with frames
-FLW0.grid(row=0, column=0)
-FC_0.grid(row=0, column=2)
-FRW0.grid(row=0, column=4)
+FLW0.grid(row=2, column=0)
+FC_0.grid(row=2, column=2)
+FRW0.grid(row=2, column=4)
 
-FLW1.grid(row=1, column=0)
-FC_1.grid(row=1, column=2)
-FRW1.grid(row=1, column=4)
+FLW1.grid(row=3, column=0)
+FC_1.grid(row=3, column=2)
+FRW1.grid(row=3, column=4)
 
-FLW2.grid(row=2, column=0)
-FC_2.grid(row=2, column=2)
-FRW2.grid(row=2, column=4)
+FLW2.grid(row=4, column=0)
+FC_2.grid(row=4, column=2)
+FRW2.grid(row=4, column=4)
 
-FLW3.grid(row=3, column=0)
-FC_3.grid(row=3, column=2)
-FRW3.grid(row=3, column=4)
+FLW3.grid(row=5, column=0)
+FC_3.grid(row=5, column=2)
+FRW3.grid(row=5, column=4)
 
-FLW4.grid(row=4, column=0)
-FC_4.grid(row=4, column=2)
-FRW4.grid(row=4, column=4)
+FLW4.grid(row=6, column=0)
+FC_4.grid(row=6, column=2)
+FRW4.grid(row=6, column=4)
 
-FLD0.grid(row=5, column=1)
-FRD0.grid(row=5, column=3)
+FLD0.grid(row=7, column=1)
+FRD0.grid(row=7, column=3)
 
-FLD1.grid(row=6, column=1)
-FRD1.grid(row=6, column=3)
+FLD1.grid(row=8, column=1)
+FRD1.grid(row=8, column=3)
 
-FLD2.grid(row=7, column=1)
-FRD2.grid(row=7, column=3)
+FLD2.grid(row=9, column=1)
+FRD2.grid(row=9, column=3)
 
-FLD3.grid(row=8, column=1)
-FRD3.grid(row=8, column=3)
+FLD3.grid(row=10, column=1)
+FRD3.grid(row=10, column=3)
 
-FG_0.grid(row=9, column=2)
-FG_1.grid(row=10, column=2)
-FG_2.grid(row=11, column=2)
+FG_0.grid(row=11, column=2)
+FG_1.grid(row=12, column=2)
+FG_2.grid(row=13, column=2)
 
-FSC0.grid(row=12, column=0)
-FSC1.grid(row=12, column=1)
-FSC2.grid(row=12, column=2)
-FSC3.grid(row=12, column=3)
+FSC0.grid(row=14, column=0)
+FSC1.grid(row=14, column=1)
+FSC2.grid(row=14, column=2)
+FSC3.grid(row=14, column=3)
 
 # packing
 LW0.pack()
@@ -904,7 +904,7 @@ class CreateToolTip(object):
 
 
 info = Label(FInfo, text="Choose Date of Game:")
-FInfo.grid(row=13, column=1)
+FInfo.grid(row=1, column=0)
 
 info.pack()
 
@@ -912,7 +912,7 @@ info.pack()
 # Date Selector Creation
 calendar = DateEntry(FDate, width=12, background='darkblue', foreground='white', borderwidth=2)
 
-FDate.grid(row=13, column=2, padx=10, pady=10)
+FDate.grid(row=1, column=1, padx=10, pady=10)
 calendar.pack()
 
 
@@ -935,7 +935,7 @@ def exportRoster():
 ExportRoster = Button(FExp, text="Export Roster", command=exportRoster, padx=50, pady=10)
 
 # Set position and pack
-FExp.grid(row=13, column=4)
+FExp.grid(row=15, column=4)
 ExportRoster.pack()
 
 
@@ -948,7 +948,7 @@ def importRoster():
 ImportRoster = Button(FImp, text="Import Roster", command=importRoster, padx=50, pady=10)
 
 # Set position and pack
-FImp.grid(row=13, column=3)
+FImp.grid(row=15, column=3)
 ImportRoster.pack()
 
 # Create Tooltip Text
