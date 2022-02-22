@@ -112,7 +112,6 @@ position_list = [
 ]
 
 
-
 # roster frame creation
 FLW0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
 FC_0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
@@ -406,7 +405,7 @@ dropdownFSC3.pack(side=RIGHT)
 
 # functions for position switching
 
-def positionSwitchLW1(*args):
+def position_switch_LW1(*args):
     # ignore choosing current player position
     if pos_varFLW1.get() == positions[0]:
         return
@@ -424,7 +423,7 @@ def positionSwitchLW1(*args):
             break
 
 
-def positionSwitchC_1(*args):
+def position_switch_C_1(*args):
     # ignore choosing current player position
     if pos_varFC_1.get() == positions[1]:
         return
@@ -442,7 +441,7 @@ def positionSwitchC_1(*args):
             break
 
 
-def positionSwitchRW1(*args):
+def position_switch_RW1(*args):
     # ignore choosing current player position
     if pos_varFRW1.get() == positions[2]:
         return
@@ -460,7 +459,7 @@ def positionSwitchRW1(*args):
             break
 
 
-def positionSwitchLW2(*args):
+def position_switch_LW2(*args):
     # ignore choosing current player position
     if pos_varFLW2.get() == positions[3]:
         return
@@ -478,7 +477,7 @@ def positionSwitchLW2(*args):
             break
 
 
-def positionSwitchC_2(*args):
+def position_switch_C_2(*args):
     # ignore choosing current player position
     if pos_varFC_2.get() == positions[4]:
         return
@@ -496,7 +495,7 @@ def positionSwitchC_2(*args):
             break
 
 
-def positionSwitchRW2(*args):
+def position_switch_RW2(*args):
     # ignore choosing current player position
     if pos_varFRW2.get() == positions[5]:
         return
@@ -514,7 +513,7 @@ def positionSwitchRW2(*args):
             break
 
 
-def positionSwitchLW3(*args):
+def position_switch_LW3(*args):
     # ignore choosing current player position
     if pos_varFLW3.get() == positions[6]:
         return
@@ -532,7 +531,7 @@ def positionSwitchLW3(*args):
             break
 
 
-def positionSwitchC_3(*args):
+def position_switch_C_3(*args):
     # ignore choosing current player position
     if pos_varFC_3.get() == positions[7]:
         return
@@ -550,7 +549,7 @@ def positionSwitchC_3(*args):
             break
 
 
-def positionSwitchRW3(*args):
+def position_switch_RW3(*args):
     # ignore choosing current player position
     if pos_varFRW3.get() == positions[8]:
         return
@@ -568,7 +567,7 @@ def positionSwitchRW3(*args):
             break
 
 
-def positionSwitchLW4(*args):
+def position_switch_LW4(*args):
     # ignore choosing current player position
     if pos_varFLW4.get() == positions[9]:
         return
@@ -586,7 +585,7 @@ def positionSwitchLW4(*args):
             break
 
 
-def positionSwitchC_4(*args):
+def position_switch_C_4(*args):
     # ignore choosing current player position
     if pos_varFC_4.get() == positions[10]:
         return
@@ -604,7 +603,7 @@ def positionSwitchC_4(*args):
             break
 
 
-def positionSwitchRW4(*args):
+def position_switch_RW4(*args):
     # ignore choosing current player position
     if pos_varFRW4.get() == positions[11]:
         return
@@ -622,7 +621,7 @@ def positionSwitchRW4(*args):
             break
 
 
-def positionSwitchLD1(*args):
+def position_switch_LD1(*args):
     # ignore choosing current player position
     if pos_varFLD1.get() == positions[12]:
         return
@@ -640,7 +639,7 @@ def positionSwitchLD1(*args):
             break
 
 
-def positionSwitchRD1(*args):
+def position_switch_RD1(*args):
     # ignore choosing current player position
     if pos_varFRD1.get() == positions[13]:
         return
@@ -658,7 +657,7 @@ def positionSwitchRD1(*args):
             break
 
 
-def positionSwitchLD2(*args):
+def position_switch_LD2(*args):
     # ignore choosing current player position
     if pos_varFLD2.get() == positions[14]:
         return
@@ -676,7 +675,7 @@ def positionSwitchLD2(*args):
             break
 
 
-def positionSwitchRD2(*args):
+def position_switch_RD2(*args):
     # ignore choosing current player position
     if pos_varFRD2.get() == positions[15]:
         return
@@ -694,7 +693,7 @@ def positionSwitchRD2(*args):
             break
 
 
-def positionSwitchLD3(*args):
+def position_switch_LD3(*args):
     # ignore choosing current player position
     if pos_varFLD3.get() == positions[16]:
         return
@@ -712,7 +711,7 @@ def positionSwitchLD3(*args):
             break
 
 
-def positionSwitchRD3(*args):
+def position_switch_RD3(*args):
     # ignore choosing current player position
     if pos_varFRD3.get() == positions[17]:
         return
@@ -730,7 +729,7 @@ def positionSwitchRD3(*args):
             break
 
 
-def positionSwitchG_1(*args):
+def position_switch_G_1(*args):
     # ignore choosing current player position
     if pos_varFG_1.get() == positions[18]:
         return
@@ -748,7 +747,7 @@ def positionSwitchG_1(*args):
             break
 
 
-def positionSwitchG_2(*args):
+def position_switch_G_2(*args):
     # ignore choosing current player position
     if pos_varFG_2.get() == positions[19]:
         return
@@ -766,7 +765,7 @@ def positionSwitchG_2(*args):
             break
 
 
-def positionSwitchSC1(*args):
+def position_switch_SC1(*args):
     # ignore choosing current player position
     if pos_varFSC1.get() == positions[20]:
         return
@@ -784,7 +783,7 @@ def positionSwitchSC1(*args):
             break
 
 
-def positionSwitchSC2(*args):
+def position_switch_SC2(*args):
     # ignore choosing current player position
     if pos_varFSC2.get() == positions[21]:
         return
@@ -802,7 +801,7 @@ def positionSwitchSC2(*args):
             break
 
 
-def positionSwitchSC3(*args):
+def position_switch_SC3(*args):
     # ignore choosing current player position
     if pos_varFSC3.get() == positions[22]:
         return
@@ -823,29 +822,29 @@ def positionSwitchSC3(*args):
 
 
 # link function to dropdown
-pos_varFLW1.trace('w', positionSwitchLW1)
-pos_varFC_1.trace('w', positionSwitchC_1)
-pos_varFRW1.trace('w', positionSwitchRW1)
-pos_varFLW2.trace('w', positionSwitchLW2)
-pos_varFC_2.trace('w', positionSwitchC_2)
-pos_varFRW2.trace('w', positionSwitchRW2)
-pos_varFLW3.trace('w', positionSwitchLW3)
-pos_varFC_3.trace('w', positionSwitchC_3)
-pos_varFRW3.trace('w', positionSwitchRW3)
-pos_varFLW4.trace('w', positionSwitchLW4)
-pos_varFC_4.trace('w', positionSwitchC_4)
-pos_varFRW4.trace('w', positionSwitchRW4)
-pos_varFLD1.trace('w', positionSwitchLD1)
-pos_varFRD1.trace('w', positionSwitchRD1)
-pos_varFLD2.trace('w', positionSwitchLD2)
-pos_varFRD2.trace('w', positionSwitchRD2)
-pos_varFLD3.trace('w', positionSwitchLD3)
-pos_varFRD3.trace('w', positionSwitchRD3)
-pos_varFG_1.trace('w', positionSwitchG_1)
-pos_varFG_2.trace('w', positionSwitchG_2)
-pos_varFSC1.trace('w', positionSwitchSC1)
-pos_varFSC2.trace('w', positionSwitchSC2)
-pos_varFSC3.trace('w', positionSwitchSC3)
+pos_varFLW1.trace('w', position_switch_LW1)
+pos_varFC_1.trace('w', position_switch_C_1)
+pos_varFRW1.trace('w', position_switch_RW1)
+pos_varFLW2.trace('w', position_switch_LW2)
+pos_varFC_2.trace('w', position_switch_C_2)
+pos_varFRW2.trace('w', position_switch_RW2)
+pos_varFLW3.trace('w', position_switch_LW3)
+pos_varFC_3.trace('w', position_switch_C_3)
+pos_varFRW3.trace('w', position_switch_RW3)
+pos_varFLW4.trace('w', position_switch_LW4)
+pos_varFC_4.trace('w', position_switch_C_4)
+pos_varFRW4.trace('w', position_switch_RW4)
+pos_varFLD1.trace('w', position_switch_LD1)
+pos_varFRD1.trace('w', position_switch_RD1)
+pos_varFLD2.trace('w', position_switch_LD2)
+pos_varFRD2.trace('w', position_switch_RD2)
+pos_varFLD3.trace('w', position_switch_LD3)
+pos_varFRD3.trace('w', position_switch_RD3)
+pos_varFG_1.trace('w', position_switch_G_1)
+pos_varFG_2.trace('w', position_switch_G_2)
+pos_varFSC1.trace('w', position_switch_SC1)
+pos_varFSC2.trace('w', position_switch_SC2)
+pos_varFSC3.trace('w', position_switch_SC3)
 
 
 # https://stackoverflow.com/questions/3221956/how-do-i-display-tooltips-in-tkinter
@@ -917,7 +916,7 @@ calendar.pack()
 
 
 # function for exporting roster to a txt file
-def exportRoster():
+def export_roster():
     # create dictionary with positions and players
     i = 0
     export_dict = {key: None for key in position_list}
@@ -932,7 +931,7 @@ def exportRoster():
 
 
 # Export Roster Button
-ExportRoster = Button(FExp, text="Export Roster", command=exportRoster, padx=50, pady=10)
+ExportRoster = Button(FExp, text="Export Roster", command=export_roster, padx=50, pady=10)
 
 # Set position and pack
 FExp.grid(row=15, column=4)
@@ -940,12 +939,12 @@ ExportRoster.pack()
 
 
 # function for importing roster from a txt file
-def importRoster():
+def import_roster():
     print("Roster import will happen here.")
 
 
 # Import Roster Button
-ImportRoster = Button(FImp, text="Import Roster", command=importRoster, padx=50, pady=10)
+ImportRoster = Button(FImp, text="Import Roster", command=import_roster, padx=50, pady=10)
 
 # Set position and pack
 FImp.grid(row=15, column=3)
