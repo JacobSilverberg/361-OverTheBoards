@@ -1,11 +1,33 @@
 from tkinter import *
+import json
 
 root = Tk()
 
-roster = ["Hoban Washburne", "River Tam", "Shepard Book", "Adelai Niska", "Warwick Harrow", "Malcolm Reynolds",
-          "Inara Serra", "Simon Tam", "Yolanda Saffron", "Fess Higgins", "Jayne Cobb", "Kaylee Frye", "Zoe Washburne",
-          "Jubal Early", "Atherton Wing", "Sheppard Badger", "Tracey Smith", "Lieutenant Womack", "Sheriff Bourne",
-          "Clarke Nandi", "Magistrate Higgins", "Patience Whitefall", "Stitch Hessian"]
+roster = [
+    "Hoban Washburne",
+    "River Tam",
+    "Shepard Book",
+    "Adelai Niska",
+    "Warwick Harrow",
+    "Malcolm Reynolds",
+    "Inara Serra",
+    "Simon Tam",
+    "Yolanda Saffron",
+    "Fess Higgins",
+    "Jayne Cobb",
+    "Kaylee Frye",
+    "Zoe Washburne",
+    "Jubal Early",
+    "Atherton Wing",
+    "Sheppard Badger",
+    "Tracey Smith",
+    "Lieutenant Womack",
+    "Sheriff Bourne",
+    "Clarke Nandi",
+    "Magistrate Higgins",
+    "Patience Whitefall",
+    "Stitch Hessian"
+          ]
 
 positions = ["1 - LW", "1 - C ", "1 - RW", "2 - LW", "2 - C ", "2 - RW", "3 - LW", "3 - C ", "3 - RW",
              "4 - LW", "4 - C ", "4 - RW", "1 - LD", "1 - RD", "2 - LD", "2 - RD", "3 - LD", "3 - RD", "1 - G ",
@@ -36,6 +58,33 @@ position_dict = {
     21: "SC2",
     22: "SC3"
 }
+
+position_list = [
+    "LW1",
+    "C_1",
+    "RW1",
+    "LW2",
+    "C_2",
+    "RW2",
+    "LW3",
+    "C_3",
+    "RW3",
+    "LW4",
+    "C_4",
+    "RW4",
+    "LD1",
+    "RD1",
+    "LD2",
+    "RD2",
+    "LD3",
+    "RD3",
+    "G_1",
+    "G_2",
+    "SC1",
+    "SC2",
+    "SC3"
+]
+
 
 
 # frame creation
@@ -94,8 +143,24 @@ SC0 = Label(FSC0, text="Scratches:")
 Imp = Button(root, text="Import Roster", padx=50, pady=10)
 Imp.grid(row=13, column=0)
 
+
+# function for exporting roster to a txt file
+def exportRoster():
+    # create dictionary with positions and players
+    i = 0
+    export_dict = {key: None for key in position_list}
+    for key in position_list:
+        export_dict[key] = roster[i]
+        i += 1
+
+    # create json object, write to file
+    json_object = json.dumps(export_dict, indent=4)
+    with open("roster_export.txt", "w") as outfile:
+        outfile.write(json_object)
+
+
 # Export Roster Button
-Imp = Button(root, text="Export Roster", padx=50, pady=10)
+Imp = Button(root, text="Export Roster", command=exportRoster, padx=50, pady=10)
 Imp.grid(row=13, column=4)
 
 # player name labels
@@ -331,16 +396,7 @@ dropdownFSC1.pack(side=RIGHT)
 dropdownFSC2.pack(side=RIGHT)
 dropdownFSC3.pack(side=RIGHT)
 
-
-
-# scratches
-# Scr.grid(row=11, column=0)
-# for i in range(len(roster)-19):
-#     j = Label(root, text=roster[i+19])
-#     j.grid(row=12+(i // 5), column=i % 5)
-
 # functions for position switching
-
 
 def positionSwitchLW1(*args):
     # ignore choosing current player position
@@ -754,6 +810,8 @@ def positionSwitchSC3(*args):
             pos_varFSC3.set(positions[22])
             eval("pos_varF"+position_dict.get(x)+".set(positions[x])")
             break
+
+
 
 
 # link function to dropdown
