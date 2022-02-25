@@ -1,11 +1,14 @@
 from tkinter import *
-from babel.dates import format_date, format_datetime, format_time
+# from babel.dates import format_date, format_datetime, format_time
 from tkcalendar import Calendar, DateEntry
+from time import sleep
 import json
 
 root = Tk()
 
 root.title("OverTheBoards")
+
+greeting = "For a custom greeting, select 'Get Custom Greeting'!"
 
 roster = [
     "Hoban Washburne",
@@ -160,6 +163,8 @@ FExp = Frame(root)
 FSave = Frame(root)
 FDate = Frame(root)
 FInfo = Frame(root)
+FGreet = Frame(root)
+FGetGreet = Frame(root)
 
 # position labels and spacers
 LW0 = Label(FLW0, text="Left Wing")
@@ -944,14 +949,64 @@ def import_roster():
 
 
 # Import Roster Button
-ImportRoster = Button(FImp, text="Import Roster", command=import_roster, padx=50, pady=10)
+ImportRoster = Button(FImp, text="Import Roster\n(Non-Functional)", command=import_roster, padx=50, pady=10)
 
 # Set position and pack
-FImp.grid(row=15, column=3)
+FImp.grid(row=15, column=2)
 ImportRoster.pack()
+
+# access teammate's microservice and get a greeting
+def random_greeting():
+    global greeting
+    global GreetingDisplay
+
+    # trigger microservice
+    with open('comm_file.txt', 'w') as greet_file:
+        greet_file.write("start")
+
+    sleep(0.3)
+
+    # read from microservice text file
+    with open('comm_file.txt', 'r') as greet_file:
+        greeting_text = greet_file.readline()
+
+    # set value to greeting variable and update the display
+    greeting = greeting_text
+    GreetingDisplay.config(text=greeting)
+    return
+
+
+# create GetGreeting button
+GetGreeting = Button(FGetGreet, text="Get Custom Greeting", command=random_greeting, padx=50, pady=10)
+FGetGreet.grid(row=15, column=0)
+GetGreeting.pack()
+
+# create GreetingDisplay label
+GreetingDisplay = Label(FGreet, text=greeting)
+FGreet.grid(row=1, column=3)
+GreetingDisplay.pack()
+
+def watch_file():
+    start = "start"
+    file_text = ""
+
+    while file_text != start:
+        with open('roster_export.txt', 'r') as infile:
+            file_text = infile.readline()
+
+    export_roster()
+    return
+
+
+FMicro = Frame(root)
+microButton = Button(FMicro, text="Start Export Microservice", command=watch_file, padx=50, pady=10)
+FMicro.grid(row=15, column=3)
+# microButton.after(5000, None)
+microButton.pack()
 
 # Create Tooltip Text
 ImportRoster_TTP = CreateToolTip(ImportRoster, "WARNING: Importing a roster will overwrite current roster. Please ensure you have saved your data.")
+Microservice_TTP = CreateToolTip(microButton, "WARNING: Program will not function until microservice call is completed.")
 
 # main loop
 root.mainloop()
