@@ -1,3 +1,14 @@
 # Auto detect text files and perform LF normalization
 * text=auto
 .ButtonsTkinter.py export-ignore
+.CalendarTkinter.py export-ignore
+.DropdownTkinter.py export-ignore
+.EntryTkinter.py export-ignore
+.FrameTkinter.py export-ignore
+.LoopTkinter.py export-ignore
+.OTBMicro.txt export-ignore
+.TkinterTest.py export-ignore
+.TooltipTkinter.py export-ignore
+.comm_file.txt export-ignore
+.cust_greeting.py export-ignore
+.roster_export.txt export-ignore
