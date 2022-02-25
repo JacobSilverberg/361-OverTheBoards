@@ -987,27 +987,27 @@ FGreet.grid(row=1, column=3)
 GreetingDisplay.pack()
 
 # microservice function to watch roster_export.txt for "start", call export_roster when selected
-def watch_file():
-    start = "start"
-    file_text = ""
-
-    while file_text != start:
-        with open('roster_export.txt', 'r') as infile:
-            file_text = infile.readline()
-
-    export_roster()
-    return
+# def watch_file():
+#     start = "start"
+#     file_text = ""
+#
+#     while file_text != start:
+#         with open('roster_export.txt', 'r') as infile:
+#             file_text = infile.readline()
+#
+#     export_roster()
+#     return
 
 
 # Create microservice button
-FMicro = Frame(root)
-microButton = Button(FMicro, text="Start Export Microservice", command=watch_file, padx=50, pady=10)
-FMicro.grid(row=15, column=3)
-microButton.pack()
+# FMicro = Frame(root)
+# microButton = Button(FMicro, text="Start Export Microservice", command=watch_file, padx=50, pady=10)
+# FMicro.grid(row=15, column=3)
+# microButton.pack()
 
 # Create Tooltip Text
 ImportRoster_TTP = CreateToolTip(ImportRoster, "WARNING: Importing a roster will overwrite current roster. Please ensure you have saved your data.")
-Microservice_TTP = CreateToolTip(microButton, "WARNING: Program will not function until microservice call is completed.")
+# Microservice_TTP = CreateToolTip(microButton, "WARNING: Program will not function until microservice call is completed.")
 
 # main loop
 root.mainloop()
