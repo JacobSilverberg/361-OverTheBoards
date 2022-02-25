@@ -986,6 +986,7 @@ GreetingDisplay = Label(FGreet, text=greeting)
 FGreet.grid(row=1, column=3)
 GreetingDisplay.pack()
 
+# microservice function to watch roster_export.txt for "start", call export_roster when selected
 def watch_file():
     start = "start"
     file_text = ""
@@ -998,10 +999,10 @@ def watch_file():
     return
 
 
+# Create microservice button
 FMicro = Frame(root)
 microButton = Button(FMicro, text="Start Export Microservice", command=watch_file, padx=50, pady=10)
 FMicro.grid(row=15, column=3)
-# microButton.after(5000, None)
 microButton.pack()
 
 # Create Tooltip Text
