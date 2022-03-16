@@ -1,5 +1,4 @@
 from tkinter import *
-# from babel.dates import format_date, format_datetime, format_time
 from tkcalendar import Calendar, DateEntry
 from time import sleep
 import json
@@ -1004,7 +1003,9 @@ FGreet.grid(row=1, column=4)
 GreetingDisplay.pack()
 
 # Create Tooltip Text
+SaveRoster_TTP = CreateToolTip(SaveRoster, "Saving a roster will let you load previous game rosters whenever you want!")
 LoadRoster_TTP = CreateToolTip(LoadRoster, "WARNING: Loading a roster will overwrite any unsaved changes!")
+
 
 # main loop
 root.mainloop()
