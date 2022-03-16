@@ -14,6 +14,6 @@ while True:
         with open("OTBMicro.txt", "r") as infile:
             read_text = infile.readline()
 
-    with open("roster_export.txt", "r") as infile, open("OTBMicro.txt", "w+") as outfile:
+    with open("roster_export.txt", "r") as infile, open("OTBMicro.txt", "w") as outfile:
         for line in infile:
             outfile.write(line)

@@ -114,6 +114,8 @@ position_list = [
     "SC3"
 ]
 
+saved_rosters = {}
+
 
 # roster frame creation
 FLW0 = Frame(root, borderwidth=2, relief=RIDGE, padx=75)
@@ -165,6 +167,8 @@ FDate = Frame(root)
 FInfo = Frame(root)
 FGreet = Frame(root)
 FGetGreet = Frame(root)
+FSaveRoster = Frame(root)
+FLoadRoster = Frame(root)
 
 # position labels and spacers
 LW0 = Label(FLW0, text="Left Wing")
@@ -907,17 +911,43 @@ class CreateToolTip(object):
             tw.destroy()
 
 
-info = Label(FInfo, text="Choose Date of Game:")
+info = Label(FInfo, text="Choose Roster Date:")
 FInfo.grid(row=1, column=0)
-
 info.pack()
 
 
 # Date Selector Creation
 calendar = DateEntry(FDate, width=12, background='darkblue', foreground='white', borderwidth=2)
-
 FDate.grid(row=1, column=1, padx=10, pady=10)
 calendar.pack()
+
+# Function for saving roster on specified date by date selector
+def save_roster():
+    saved_rosters.update({calendar.get_date(): roster.copy()})
+    return
+
+
+# Function for loading roster on specified date by date selector
+def load_roster():
+    if saved_rosters.get(calendar.get_date()) is None:
+        return
+    else:
+        loading_roster = saved_rosters.get(calendar.get_date())
+        for i in range(len(loading_roster)):
+            roster[i] = loading_roster[i]
+        for i in range(len(position_dict)):
+            eval(position_dict.get(i)+".config(text=roster[i])")
+        return
+
+
+# save and load roster button creation and packing
+SaveRoster = Button(FSaveRoster, text="Save Roster", command=save_roster, padx=50, pady=10)
+FSaveRoster.grid(row=1, column=2, padx=10, pady=10)
+SaveRoster.pack()
+
+LoadRoster = Button(FLoadRoster, text="Load Roster", command=load_roster, padx=50, pady=10)
+FLoadRoster.grid(row=1, column=3, padx=10, pady=10)
+LoadRoster.pack()
 
 
 # function for exporting roster to a txt file
@@ -941,19 +971,6 @@ ExportRoster = Button(FExp, text="Export Roster", command=export_roster, padx=50
 # Set position and pack
 FExp.grid(row=15, column=4)
 ExportRoster.pack()
-
-
-# function for importing roster from a txt file
-def import_roster():
-    print("Roster import will happen here.")
-
-
-# Import Roster Button
-ImportRoster = Button(FImp, text="Import Roster\n(Non-Functional)", command=import_roster, padx=50, pady=10)
-
-# Set position and pack
-FImp.grid(row=15, column=2)
-ImportRoster.pack()
 
 # access teammate's microservice and get a greeting
 def random_greeting():
@@ -983,31 +1000,11 @@ GetGreeting.pack()
 
 # create GreetingDisplay label
 GreetingDisplay = Label(FGreet, text=greeting)
-FGreet.grid(row=1, column=3)
+FGreet.grid(row=1, column=4)
 GreetingDisplay.pack()
 
-# microservice function to watch roster_export.txt for "start", call export_roster when selected
-# def watch_file():
-#     start = "start"
-#     file_text = ""
-#
-#     while file_text != start:
-#         with open('roster_export.txt', 'r') as infile:
-#             file_text = infile.readline()
-#
-#     export_roster()
-#     return
-
-
-# Create microservice button
-# FMicro = Frame(root)
-# microButton = Button(FMicro, text="Start Export Microservice", command=watch_file, padx=50, pady=10)
-# FMicro.grid(row=15, column=3)
-# microButton.pack()
-
 # Create Tooltip Text
-ImportRoster_TTP = CreateToolTip(ImportRoster, "WARNING: Importing a roster will overwrite current roster. Please ensure you have saved your data.")
-# Microservice_TTP = CreateToolTip(microButton, "WARNING: Program will not function until microservice call is completed.")
+LoadRoster_TTP = CreateToolTip(LoadRoster, "WARNING: Loading a roster will overwrite any unsaved changes!")
 
 # main loop
 root.mainloop()
